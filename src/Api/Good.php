@@ -140,4 +140,15 @@ class Good extends GateWay
     {
         return $this->send('get_similar_info', $params);
     }
+
+    /**
+     * 自动高佣
+     * @link https://www.haodanku.com/api/detail/show/15.html
+     * @param array $params
+     * @return bool|mixed
+     */
+    public function highCommission(array $params = [])
+    {
+        return $this->send('ratesurl', $params);
+    }
 }
