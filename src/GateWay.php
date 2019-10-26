@@ -26,12 +26,17 @@ class GateWay
         $this->params = array_merge($this->params, $config);
     }
 
-    public function send($method, array $params)
+    public function send($method, array $params, $isPost = false)
     {
         $sysParams = array_merge($this->params, $params);
-        $requestUrl = $this->baseUrl . '/' . $method . '?' . http_build_query($sysParams);
+        $requestUrl = $this->baseUrl . '/' . $method;
         try {
-            $resp = Curl::curl_get($requestUrl);
+            if (!$isPost) {
+                $url = $requestUrl . '?' . http_build_query($sysParams);
+                $resp = Curl::curl_get($url);
+            } else {;
+                $resp = Curl::curl_post($requestUrl, $sysParams);
+            }
             $info = json_decode($resp, true);
             if ($info['code'] == 0) {
                 $this->fatory->setError($info['msg']);

@@ -149,6 +149,6 @@ class Good extends GateWay
      */
     public function highCommission(array $params = [])
     {
-        return $this->send('ratesurl', $params);
+        return $this->send('ratesurl', $params, true);
     }
 }
