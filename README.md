@@ -4,7 +4,7 @@
 
 PHP =>7.0
 
-`composer require yumufeng/haodanku-sdk`
+`composer require fighting-pie/haodanku-union-sdk`
 
 如果是在swoole 扩展下使用，支持协程并发，需要在编译swoole扩展的时候开启，系统会自动判断是否采用swoole
 
@@ -19,7 +19,7 @@ $config = [
     'apikey' => ''
 ];
 
-$client = new \HaoDanKuSdk\HaodankuFatory($config);
+$client = new \HaoDanKuSdk\HaoDanKuFactory($config);
 $result = $client->top->lists();
 
 if ($result == false) {
