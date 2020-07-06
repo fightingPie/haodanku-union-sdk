@@ -1,10 +1,10 @@
 <?php
 
 
-namespace HaodankuSdk\Api;
+namespace HaoDanKuSdk\Api;
 
 
-use HaodankuSdk\GateWay;
+use HaoDanKuSdk\GateWay;
 
 class Top extends GateWay
 {

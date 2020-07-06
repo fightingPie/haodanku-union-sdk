@@ -1,11 +1,11 @@
 <?php
 
 
-namespace HaodankuSdk\Api;
+namespace HaoDanKuSdk\Api;
 
 
-use HaodankuSdk\GateWay;
-use HaodankuSdk\HaodankuException;
+use HaoDanKuSdk\GateWay;
+use HaoDanKuSdk\HaoDanKuException;
 
 class Subject extends GateWay
 {
@@ -38,12 +38,12 @@ class Subject extends GateWay
      * @link https://www.haodanku.com/api/detail/show/11.html
      * @param array $params
      * @return bool|mixed
-     * @throws HaodankuException
+     * @throws HaoDanKuException
      */
     public function items(array $params = [])
     {
         if (!isset($params['id'])) {
-            throw  new  HaodankuException('id不能为空');
+            throw  new  HaoDanKuException('id不能为空');
         }
         return $this->send('get_subject_item', $params);
     }

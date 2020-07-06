@@ -1,18 +1,17 @@
 <?php
 
+namespace HaoDanKuSdk;
 
-namespace HaodankuSdk;
-
-use HaodankuSdk\Api\Content;
-use HaodankuSdk\Api\Good;
-use HaodankuSdk\Api\Search;
-use HaodankuSdk\Api\Shop;
-use HaodankuSdk\Api\Subject;
-use HaodankuSdk\Api\Top;
+use HaoDanKuSdk\Api\Content;
+use HaoDanKuSdk\Api\Good;
+use HaoDanKuSdk\Api\Search;
+use HaoDanKuSdk\Api\Shop;
+use HaoDanKuSdk\Api\Subject;
+use HaoDanKuSdk\Api\Top;
 
 /**
- * Class HaodankuFatory
- * @package HaodankuSdk
+ * Class HaoDanKuFactory
+ * @package HaoDanKuSdk
  * @property Good good
  * @property Top top
  * @property Content content
@@ -20,26 +19,35 @@ use HaodankuSdk\Api\Top;
  * @property Shop shop
  * @property Subject subject
  */
-class HaodankuFatory
+class HaoDanKuFactory
 {
     private $config;
     private $error;
 
+    /**
+     * HaoDanKuFactory constructor.
+     * @param null $config
+     * @throws HaoDanKuException
+     */
     public function __construct($config = null)
     {
         if (empty($config)) {
-            throw new HaodankuException('no config');
+            throw new HaoDanKuException('no config');
         }
         $this->config = $config;
     }
 
+    /**
+     * @param $api
+     * @return bool
+     * @throws \Exception
+     */
     public function __get($api)
     {
         try {
             $classname = __NAMESPACE__ . "\\Api\\" . ucfirst($api);
             if (!class_exists($classname)) {
                 throw new \Exception('api undefined');
-                return false;
             }
             $new = new $classname($this->config, $this);
             return $new;
@@ -48,11 +56,17 @@ class HaodankuFatory
         }
     }
 
+    /**
+     * @param $message
+     */
     public function setError($message)
     {
         $this->error = $message;
     }
 
+    /**
+     * @return mixed
+     */
     public function getError()
     {
         return $this->error;

@@ -19,7 +19,7 @@ $config = [
     'apikey' => ''
 ];
 
-$client = new \HaodankuSdk\HaodankuFatory($config);
+$client = new \HaoDanKuSdk\HaodankuFatory($config);
 $result = $client->top->lists();
 
 if ($result == false) {

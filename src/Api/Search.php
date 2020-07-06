@@ -1,11 +1,11 @@
 <?php
 
 
-namespace HaodankuSdk\Api;
+namespace HaoDanKuSdk\Api;
 
 
-use HaodankuSdk\GateWay;
-use HaodankuSdk\HaodankuException;
+use HaoDanKuSdk\GateWay;
+use HaoDanKuSdk\HaoDanKuException;
 
 class Search extends GateWay
 {
@@ -15,12 +15,12 @@ class Search extends GateWay
      * @link https://www.haodanku.com/api/detail/show/19.html
      * @param array $params
      * @return bool|mixed
-     * @throws HaodankuException
+     * @throws HaoDanKuException
      */
     public function superSearch(array $params = [])
     {
         if (!isset($params['keyword'])) {
-            throw new  HaodankuException("keyword不能为空哦");
+            throw new  HaoDanKuException("keyword不能为空哦");
         }
         $params['keyword'] = urlencode(urlencode($params['keyword']));
         if (!isset($params['back'])) {
@@ -40,12 +40,12 @@ class Search extends GateWay
      * @link https://www.haodanku.com/api/detail/show/5.html
      * @param array $params
      * @return bool|mixed
-     * @throws HaodankuException
+     * @throws HaoDanKuException
      */
     public function getByKeyword(array $params = [])
     {
         if (!isset($params['keyword'])) {
-            throw new  HaodankuException("keyword不能为空哦");
+            throw new  HaoDanKuException("keyword不能为空哦");
         }
         $params['keyword'] = urlencode(urlencode($params['keyword']));
         if (!isset($params['back'])) {
