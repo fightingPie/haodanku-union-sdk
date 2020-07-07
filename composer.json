@@ -9,13 +9,19 @@
   ],
   "require": {
     "php": ">=7.0",
-    "yumufeng/curl-swoole": "^1.0"
+    "yumufeng/curl-swoole": "^1.0",
+    "ext-json": "*"
   },
   "autoload": {
     "classmap": [
     ],
     "psr-4": {
       "HaoDanKuSdk\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "HaoDanKuSdk\\test\\": "test"
     }
   },
   "repositories": {

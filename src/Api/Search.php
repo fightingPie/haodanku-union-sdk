@@ -70,4 +70,15 @@ class Search extends GateWay
         }
         return $this->send('hot_key', $params);
     }
+
+    /**
+     * 超级分类API
+     * @link https://www.haodanku.com/api/detail/show/9.html
+     * @param array $params
+     * @return bool|mixed
+     */
+    public function superClassify(array $params = [])
+    {
+        return $this->send('super_classify', $params);
+    }
 }
