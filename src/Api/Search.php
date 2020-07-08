@@ -32,7 +32,7 @@ class Search extends GateWay
         if (!isset($params['tb_p'])) {
             $params['tb_p'] = 1;
         }
-        return $this->send('get_keyword_items', $params);
+        return $this->send('supersearch', $params);
     }
 
     /**
